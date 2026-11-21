@@ -3,69 +3,573 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ねこの手ウェブ制作｜ピタップ</title>
+<title>ねこの手ウェブ制作｜ホームページ制作・LINE公式アカウント構築（戸田・蕨・川口・さいたま／全国オンライン対応）</title>
+<meta name="description" content="店舗・教室・小規模事業者向けのホームページ制作とLINE公式アカウント構築代行。HP制作50,000円〜／LINE構築50,000円〜。MEO・AI導入支援・NFCタップカード「ピタップ」も。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; background:#fff8f0; color:#2b2b2b; min-height:100vh; }
-  .wrap { max-width:520px; margin:0 auto; padding:36px 20px 40px; }
-  .icon { width:84px; height:84px; border-radius:50%; object-fit:cover; display:block; margin:0 auto; border:3px solid #ff8c42; }
-  .brand { text-align:center; color:#ff8c42; font-size:12px; font-weight:700; letter-spacing:.25em; margin-top:14px; }
-  h1 { text-align:center; font-size:27px; font-weight:800; margin-top:6px; }
-  .tag { text-align:center; color:#6b5d4f; font-size:14px; line-height:1.8; margin-top:10px; }
-  .info { margin-top:20px; background:#ffffff; border:1px solid #f0ddc8; border-radius:16px; padding:16px 18px; font-size:14px; line-height:2; }
-  .info b { color:#ff8c42; margin-right:8px; font-size:12px; letter-spacing:.1em; }
-  .prices { margin-top:14px; background:#ffffff; border:1px solid #f0ddc8; border-radius:16px; padding:16px 18px; }
-  .prices .lbl { color:#ff8c42; font-size:12px; font-weight:700; letter-spacing:.2em; margin-bottom:8px; }
-  .prices li { list-style:none; font-size:14px; line-height:2; display:flex; justify-content:space-between; }
-  .prices li span { color:#8a7a68; font-size:13px; }
-  nav { margin-top:22px; display:flex; flex-direction:column; gap:12px; }
-  a.card { display:flex; align-items:center; gap:14px; background:#ffffff; border:1.5px solid #ff8c42; border-radius:16px; padding:16px 18px; text-decoration:none; color:#2b2b2b; }
-  a.card .t { font-size:16.5px; font-weight:700; }
-  a.card .s { font-size:12.5px; color:#8a7a68; margin-top:2px; }
-  a.card .arrow { margin-left:auto; color:#ff8c42; font-size:20px; font-weight:700; }
-  .foot { text-align:center; color:#b8a893; font-size:11.5px; margin-top:28px; line-height:1.9; }
+:root{
+  --ink:#2b2622;
+  --ink-soft:#5c554e;
+  --paper:#faf7f2;
+  --card:#ffffff;
+  --line:#e5ded4;
+  --accent:#d96f1e;      /* warm orange */
+  --accent-dark:#b5570f;
+  --accent-bg:#fdf0e2;
+  --green:#06c755;       /* LINE green */
+  --green-dark:#04a244;
+  --navy:#22384f;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+  color:var(--ink);background:var(--paper);
+  line-height:1.8;font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%}
+a{color:var(--accent-dark)}
+.wrap{max-width:1024px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h1,h2,h3{line-height:1.45;word-break:keep-all}
+h2{font-size:clamp(22px,5.6vw,30px);font-weight:900;margin-bottom:8px}
+h3{font-size:18px;font-weight:700}
+.nb{white-space:nowrap}
+.sec-head{margin-bottom:28px}
+.sec-label{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;
+  color:var(--accent-dark);background:var(--accent-bg);
+  padding:3px 12px;border-radius:999px;margin-bottom:12px;
+}
+.sec-sub{color:var(--ink-soft);font-size:15px}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;text-align:center;
+  padding:14px 28px;border-radius:999px;font-size:16px;line-height:1.4;
+  transition:opacity .15s ease;
+}
+.btn:hover{opacity:.88}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-line{background:var(--green);color:#fff}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-small{padding:10px 20px;font-size:14px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(250,247,242,.96);
+  border-bottom:1px solid var(--line);
+}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;font-size:18px;color:var(--ink);text-decoration:none}
+.logo .paw{color:var(--accent)}
+nav.main-nav{display:flex;gap:22px;align-items:center}
+nav.main-nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500}
+nav.main-nav a:hover{color:var(--accent-dark)}
+nav.main-nav a.nav-cta{
+  background:var(--accent);color:#fff;font-weight:700;
+  padding:8px 18px;border-radius:999px;
+}
+@media (max-width:760px){
+  nav.main-nav a:not(.nav-cta){display:none}
+  .logo{font-size:16px}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--card);border-bottom:1px solid var(--line);padding:56px 0 60px}
+.hero-eyebrow{
+  display:inline-block;font-size:13px;font-weight:700;color:var(--navy);
+  border:1.5px solid var(--navy);border-radius:999px;padding:2px 14px;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(27px,7.4vw,44px);font-weight:900;margin-bottom:16px}
+.hero h1 .hl{color:var(--accent-dark)}
+.hero-lead{color:var(--ink-soft);max-width:640px;margin-bottom:26px}
+.hero-pillars{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.hero-pillars span{
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:8px 14px;font-size:14px;font-weight:700;
+}
+.hero-prices{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.price-chip{
+  background:var(--accent-bg);border:1.5px dashed var(--accent);
+  border-radius:var(--radius);padding:12px 18px;
+}
+.price-chip .t{font-size:13px;font-weight:700;color:var(--accent-dark)}
+.price-chip .p{font-size:22px;font-weight:900;line-height:1.3}
+.price-chip .p small{font-size:13px;font-weight:700}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{font-size:13px;color:var(--ink-soft);margin-top:16px}
+
+/* ---------- cards / services ---------- */
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;
+}
+.card h3{margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+.card ul{list-style:none;margin-top:12px}
+.card ul li{
+  font-size:14.5px;padding-left:20px;position:relative;margin-bottom:5px;
+}
+.card ul li::before{content:"✓";position:absolute;left:0;color:var(--accent-dark);font-weight:900}
+.pillar{border-top:5px solid var(--accent)}
+.pillar.line-p{border-top-color:var(--green)}
+.pillar .tag{
+  display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--accent);
+  border-radius:6px;padding:2px 10px;margin-bottom:10px;
+}
+.pillar.line-p .tag{background:var(--green-dark)}
+.sub-service h3{font-size:16px}
+.sub-service .price-from{margin-top:10px;font-weight:900;color:var(--ink)}
+.sub-service .price-from small{font-size:12px;color:var(--ink-soft);font-weight:500}
+
+/* ---------- price ---------- */
+#price{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.price-card{display:flex;flex-direction:column}
+.price-card .name{font-weight:900;font-size:17px;margin-bottom:4px}
+.price-card .cond{font-size:12.5px;color:var(--accent-dark);font-weight:700;margin-bottom:10px}
+.price-card .amount{font-size:30px;font-weight:900;line-height:1.25}
+.price-card .amount small{font-size:14px;font-weight:700}
+.price-card .unit{font-size:13px;color:var(--ink-soft);margin-bottom:10px}
+.price-card ul{list-style:none;margin-top:6px}
+.price-card ul li{font-size:14px;padding-left:20px;position:relative;margin-bottom:5px;color:var(--ink-soft)}
+.price-card ul li::before{content:"✓";position:absolute;left:0;color:var(--accent-dark);font-weight:900}
+.price-note{font-size:13px;color:var(--ink-soft);margin-top:18px}
+
+/* ---------- works ---------- */
+.work-card a.work-link{font-weight:900;font-size:17px;text-decoration:none;color:var(--ink)}
+.work-card a.work-link:hover{color:var(--accent-dark)}
+.work-card .url{font-size:13px;color:var(--accent-dark);word-break:break-all}
+.work-card p{margin-top:8px}
+
+/* ---------- flow ---------- */
+#flow{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.flow-grid{grid-template-columns:1fr}}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.step .num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;
+  font-weight:900;font-size:15px;margin-bottom:10px;
+}
+.step h3{font-size:16px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--ink-soft)}
+.step.optional{border-style:dashed}
+.step.optional .num{background:var(--ink-soft)}
+
+/* ---------- faq ---------- */
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;margin-bottom:12px;
+}
+summary{font-weight:700;cursor:pointer;list-style:none;font-size:15.5px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q. ";color:var(--accent-dark);font-weight:900}
+details p{margin-top:10px;font-size:14.5px;color:var(--ink-soft)}
+
+/* ---------- about / contact ---------- */
+#about{background:var(--card);border-top:1px solid var(--line)}
+.about-box{display:flex;gap:24px;align-items:flex-start}
+@media (max-width:760px){.about-box{flex-direction:column}}
+.about-avatar{
+  flex:0 0 auto;width:92px;height:92px;border-radius:50%;
+  background:var(--accent-bg);border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:40px;
+}
+.about-box p{color:var(--ink-soft);font-size:15px;margin-bottom:10px}
+.about-box p strong{color:var(--ink)}
+.honest{
+  background:var(--accent-bg);border-radius:var(--radius);padding:16px 20px;
+  font-size:15px;font-weight:700;color:var(--ink);margin-top:6px;
+}
+.contact-box{
+  background:var(--navy);color:#fff;border-radius:20px;padding:36px 28px;text-align:center;
+}
+.contact-box h2{color:#fff}
+.contact-box p{color:#dbe4ee;font-size:15px;margin-bottom:24px}
+.contact-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.contact-box .btn-ghost{border-color:#fff}
+
+/* ---------- footer ---------- */
+footer{padding:36px 0 48px;color:var(--ink-soft);font-size:13px}
+footer .f-logo{font-weight:900;color:var(--ink);font-size:15px;margin-bottom:6px}
+footer a{color:var(--ink-soft)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <img class="icon" src="icon.jpg" alt="ねこの手ウェブ制作">
-  <div class="brand">PITAP DEMO</div>
-  <h1>ねこの手ウェブ制作</h1>
-  <p class="tag">ホームページ制作・LINE公式アカウント構築・<br>Googleマップ集客（MEO）のお手伝いをしています。</p>
 
-  <div class="info">
-    <div><b>対応</b>戸田市・川口市・さいたま市ほか、オンラインで全国対応</div>
-    <div><b>相談</b>無料デモページを作成します。まずはお気軽にどうぞ</div>
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#top"><span class="paw">🐾</span> ねこの手ウェブ制作</a>
+    <nav class="main-nav">
+      <a href="#service">サービス</a>
+      <a href="#price">料金</a>
+      <a href="#works">制作実績</a>
+      <a href="#flow">制作の流れ</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#contact">お問い合わせ</a>
+    </nav>
   </div>
+</header>
 
-  <div class="prices">
-    <div class="lbl">料金の目安</div>
-    <ul>
-      <li>HP制作・LINE構築 <span>50,000円〜</span></li>
-      <li>月額サポート <span>9,800円〜／月</span></li>
-      <li>ぴたっぷ（NFC集客） <span>9,800円〜</span></li>
-    </ul>
+<main id="top">
+
+<!-- ===== 1. ヒーロー ===== -->
+<div class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow">店舗・教室・小規模事業者のためのWeb制作</span>
+    <h1><span class="nb">ホームページと</span><span class="nb">LINEで、</span><br>
+    <span class="nb">お客様が</span><span class="hl nb">見つけて、</span><span class="hl nb">問い合わせる</span><span class="nb">仕組みを。</span></h1>
+    <p class="hero-lead">ねこの手ウェブ制作は、ホームページ制作とLINE公式アカウント構築を2本柱に、小さな事業者の「ネット集客の土台づくり」をお手伝いします。難しい言葉は使わず、料金は事前に明示。まずは無料相談からどうぞ。</p>
+    <div class="hero-pillars">
+      <span>柱1｜ホームページ制作</span>
+      <span>柱2｜LINE公式アカウント構築</span>
+      <span>全国対応（オンライン）</span>
+    </div>
+    <div class="hero-prices">
+      <div class="price-chip">
+        <div class="t">HP制作</div>
+        <div class="p">50,000円<small>〜</small></div>
+      </div>
+      <div class="price-chip">
+        <div class="t">LINE構築</div>
+        <div class="p">50,000円<small>〜</small></div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">無料で相談する</a>
+      <a class="btn btn-ghost" href="#price">料金を見る</a>
+    </div>
+    <p class="hero-note">※料金は内容に応じて、着手前にお見積もりで確定額をご提示します。</p>
   </div>
-
-  <nav>
-    <a class="card" href="https://syunta6921.github.io/nekono-te-web/">
-      <div><div class="t">公式サイト</div><div class="s">サービス内容・制作実績はこちら</div></div><div class="arrow">›</div>
-    </a>
-    <a class="card" href="https://syunta6921.github.io/pitap-demo/todaichi.html">
-      <div><div class="t">サンプルページを見る</div><div class="s">戸田一ホルモン様のデモページ</div></div><div class="arrow">›</div>
-    </a>
-    <a class="card" href="https://coconala.com/services/4478308">
-      <div><div class="t">ココナラで相談する</div><div class="s">見積もり・相談は無料です</div></div><div class="arrow">›</div>
-    </a>
-    <a class="card" href="tel:07015130921">
-      <div><div class="t">電話する</div><div class="s">070-1513-0921</div></div><div class="arrow">›</div>
-    </a>
-    <a class="card" href="mailto:syunta.abe0921@gmail.com">
-      <div><div class="t">メールする</div><div class="s">syunta.abe0921@gmail.com</div></div><div class="arrow">›</div>
-    </a>
-  </nav>
-
-  <p class="foot">このページは「ぴたっぷ」のデモページです。<br>スマホをカードやステッカーにかざすだけで開きます。</p>
 </div>
+
+<!-- ===== 2. サービス詳細 ===== -->
+<section id="service">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">SERVICE</span>
+      <h2><span class="nb">サービス</span><span class="nb">詳細</span></h2>
+      <p class="sec-sub">2本柱を中心に、集客の土台づくりをまとめてお手伝いします。</p>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:16px">
+      <div class="card pillar">
+        <span class="tag">柱 1</span>
+        <h3>ホームページ制作</h3>
+        <p>お店・教室・事業の「顔」になるホームページを制作します。スマホで見やすく、問い合わせにつながる構成で作ります。</p>
+        <ul>
+          <li>スマホ対応のデザイン（3ページまでが基本プラン）</li>
+          <li>お問い合わせフォーム・電話ボタンの設置</li>
+          <li>Googleマップの埋め込み</li>
+          <li>文章の下書きはこちらで作成（ヒアリングをもとに）</li>
+          <li>公開までの設定を一式対応</li>
+        </ul>
+      </div>
+      <div class="card pillar line-p">
+        <span class="tag">柱 2</span>
+        <h3>LINE公式アカウント構築</h3>
+        <p>予約・問い合わせの受け付けやリピーターづくりに使える、LINE公式アカウントの初期構築を代行します。</p>
+        <ul>
+          <li>アカウント開設・基本設定の代行</li>
+          <li>リッチメニュー（最大6項目）の構成・設定</li>
+          <li>あいさつメッセージ・自動応答（最大10キーワード）</li>
+          <li>申込・予約フォームへの導線設計</li>
+          <li>操作マニュアルのお渡し</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card sub-service">
+        <h3>LP制作</h3>
+        <p>キャンペーンやサービス紹介に特化した、1ページ完結のランディングページを制作します。広告やSNSからの受け皿に。</p>
+        <div class="price-from">50,000円〜 <small>／ 1ページ</small></div>
+      </div>
+      <div class="card sub-service">
+        <h3>MEO／Googleビジネスプロフィール支援</h3>
+        <p>「近くの〇〇」で検索されたときに見つけてもらうための、Googleビジネスプロフィールの初期整備と運用サポートです。</p>
+        <div class="price-from">初期整備 50,000円〜 <small>／ 運用 月額9,800円〜</small></div>
+      </div>
+      <div class="card sub-service">
+        <h3>AI導入・業務効率化支援</h3>
+        <p>まずは無料診断で「どこにAIが効くか」を整理。文章作成や問い合わせ対応など、小さな業務改善から始めます。</p>
+        <div class="price-from">スポット 50,000円〜 <small>／ 月額伴走 9,800円〜</small></div>
+      </div>
+      <div class="card sub-service">
+        <h3>ピタップ（NFCタップカード）</h3>
+        <p>スマホをかざすだけで、口コミ・LINE・Instagramや店舗のまとめページが開くNFCカード。アプリ不要、QRより手軽です。</p>
+        <div class="price-from">カード 4,980円 <small>／ 店舗タップ化セット 9,800円〜</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 料金 ===== -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">PRICE</span>
+      <h2><span class="nb">料金</span></h2>
+      <p class="sec-sub">料金はすべて「〜（から）」表記です。内容に応じて、着手前にお見積もりで確定額をご提示します。後から勝手に金額が増えることはありません。</p>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:16px">
+      <div class="card price-card">
+        <div class="name">ホームページ制作</div>
+        <div class="cond">基本3ページ構成</div>
+        <div class="amount">50,000円<small>〜</small></div>
+        <div class="unit">制作費（1回）</div>
+        <ul>
+          <li>トップ／サービス・料金／お問い合わせの3ページ</li>
+          <li>スマホ対応・フォーム設置・マップ埋め込み</li>
+          <li>文章の下書き作成込み</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">LINE公式アカウント構築</div>
+        <div class="cond">ライト版（基本設定＋リッチメニュー）</div>
+        <div class="amount">50,000円<small>〜</small></div>
+        <div class="unit">構築費（1回）</div>
+        <ul>
+          <li>開設・基本設定の代行</li>
+          <li>リッチメニュー＋自動応答の設定</li>
+          <li>申込導線の設計・操作マニュアル付き</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">LP制作</div>
+        <div class="cond">1ページ完結型</div>
+        <div class="amount">50,000円<small>〜</small></div>
+        <div class="unit">制作費（1回）</div>
+        <ul>
+          <li>キャンペーン・サービス紹介ページ</li>
+          <li>スマホ対応・問い合わせ導線の設置</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">MEO／Googleビジネスプロフィール</div>
+        <div class="cond">プロフィール整備一式</div>
+        <div class="amount">50,000円<small>〜</small></div>
+        <div class="unit">初期整備（1回）／ 運用サポート 月額9,800円〜</div>
+        <ul>
+          <li>プロフィール情報の整備・写真・カテゴリ最適化</li>
+          <li>口コミへの返信サポート（運用プラン）</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">AI導入・業務効率化支援</div>
+        <div class="cond">無料診断からスタート</div>
+        <div class="amount">50,000円<small>〜</small></div>
+        <div class="unit">スポット支援（1回）／ 月額伴走 9,800円〜</div>
+        <ul>
+          <li>業務の棚卸しとAI活用ポイントの整理</li>
+          <li>小さな改善から段階的に導入</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">ピタップ（NFCタップカード）</div>
+        <div class="cond">受注生産・デザイン印刷／設定込み</div>
+        <div class="amount">4,980円</div>
+        <div class="unit">単機能カード1枚 ／ 3枚セット 9,800円</div>
+        <ul>
+          <li>店舗タップ化セット（カード＋専用まとめページ）9,800円〜</li>
+          <li>ページ管理プラン 月額4,980円〜（任意）</li>
+          <li>リンク先は後から変更可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card price-card">
+        <div class="name">運用サポート（任意）</div>
+        <div class="amount">9,800円<small>〜／月</small></div>
+        <div class="unit">LINE運用サポート</div>
+        <ul>
+          <li>配信文案の作成・設定変更の代行</li>
+          <li>いつでも解約できます（縛りなし）</li>
+        </ul>
+      </div>
+      <div class="card price-card">
+        <div class="name">HP保守プラン（任意）</div>
+        <div class="amount">5,000円<small>／月</small></div>
+        <div class="unit">ホームページの軽微な更新代行</div>
+        <ul>
+          <li>文言・写真の差し替えなどの更新対応</li>
+          <li>制作のみのご依頼も歓迎です</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="price-note">※建設・設備工事会社向けのホームページ制作は、制作費10万円（税込）の専門メニューもご用意しています。詳しくはお問い合わせください。<br>
+    ※ドメイン・サーバー等の実費が発生する場合は、事前にご説明のうえ実費精算となります。</p>
+  </div>
+</section>
+
+<!-- ===== 4. 制作実績 ===== -->
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">WORKS</span>
+      <h2><span class="nb">制作</span><span class="nb">実績</span></h2>
+      <p class="sec-sub">実際に制作し、現在公開中のサイトです。リンク先でそのままご覧いただけます。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card work-card">
+        <a class="work-link" href="https://haikyukai.com" target="_blank" rel="noopener">排球会 公式サイト</a>
+        <div class="url">haikyukai.com</div>
+        <p>戸田市のU15バレーボールクラブ「排球会」の公式サイト。クラブ紹介・スタッフ・活動情報を掲載し、独自ドメインで公開中です。</p>
+      </div>
+      <div class="card work-card">
+        <a class="work-link" href="https://sportslink-seven.vercel.app" target="_blank" rel="noopener">SPORTS LINK 公式サイト</a>
+        <div class="url">sportslink-seven.vercel.app</div>
+        <p>自身が運営するスポーツ事業「SPORTS LINK」の公式サイト。アジリティスクールの案内・申込導線を実装しています。</p>
+      </div>
+      <div class="card work-card">
+        <a class="work-link" href="https://sports-link-syunta.netlify.app/" target="_blank" rel="noopener">コーチ検索アプリ</a>
+        <div class="url">sports-link-syunta.netlify.app</div>
+        <p>スポーツコーチを探して予約できるマッチングアプリ。検索・プロフィール・予約の仕組みを持つWebアプリです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 制作の流れ ===== -->
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">FLOW</span>
+      <h2><span class="nb">制作の</span><span class="nb">流れ</span></h2>
+      <p class="sec-sub">ご相談から納品まで、オンラインで完結します。</p>
+    </div>
+    <div class="flow-grid">
+      <div class="step">
+        <span class="num">1</span>
+        <h3>ヒアリング</h3>
+        <p>お店・事業のこと、困っていることをお聞きします（30分程度・無料）。オンライン対応です。</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h3>ご提案・お見積り</h3>
+        <p>ページ構成や設定内容のご提案と、確定額のお見積もりをご提示します。ここまでは無料です。</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h3>制作</h3>
+        <p>写真などの素材をいただき、文章の下書きとあわせて制作を進めます。</p>
+      </div>
+      <div class="step">
+        <span class="num">4</span>
+        <h3>確認・修正</h3>
+        <p>出来上がりをご確認いただき、修正は2回まで無料で対応します。</p>
+      </div>
+      <div class="step">
+        <span class="num">5</span>
+        <h3>納品</h3>
+        <p>サイト公開／アカウント引き渡しをもって納品です。操作方法もご説明します。</p>
+      </div>
+      <div class="step optional">
+        <span class="num">6</span>
+        <h3>運用サポート（任意）</h3>
+        <p>公開後の更新やLINE配信は、月額プランで継続してお手伝いもできます。加入は任意です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">FAQ</span>
+      <h2><span class="nb">よくある</span><span class="nb">質問</span></h2>
+    </div>
+
+    <details>
+      <summary>納期はどのくらいですか？</summary>
+      <p>素材（写真・店舗情報など）が揃ってから、原則7日で納品します。お急ぎの場合はヒアリング時にご相談ください。期日より早めの納品を心がけています。</p>
+    </details>
+    <details>
+      <summary>修正は何回まで対応してもらえますか？</summary>
+      <p>納品前の確認段階で、修正は2回まで無料です。公開後の文言・写真の差し替えなどは、保守プラン（任意）でも対応できます。</p>
+    </details>
+    <details>
+      <summary>支払い方法を教えてください。</summary>
+      <p>クレジットカード決済（Stripeの決済リンクをお送りします）に対応しています。お支払いのタイミングはご契約時にご案内します。その他の方法をご希望の場合はご相談ください。</p>
+    </details>
+    <details>
+      <summary>料金はどうやって決まりますか？</summary>
+      <p>制作・構築は50,000円〜で、ページ数や設定内容に応じて、着手前にお見積もりで確定額をご提示します。お見積もり後の追加請求はありません。</p>
+    </details>
+    <details>
+      <summary>LINE公式アカウントを持っていなくても大丈夫ですか？</summary>
+      <p>大丈夫です。アカウントの開設から代行します。すでにアカウントをお持ちの場合は、設定の見直し・整備もご相談いただけます。</p>
+    </details>
+    <details>
+      <summary>パソコンやスマホが苦手でも大丈夫ですか？</summary>
+      <p>大丈夫です。文章の下書きはこちらで作成し、LINE構築では操作マニュアルをお渡しします。アカウントの所有者はお客様ご本人で、パスワードをお預かりすることはありません。</p>
+    </details>
+    <details>
+      <summary>遠方でも依頼できますか？</summary>
+      <p>はい。ホームページ制作・LINE構築は全国対応で、やり取りはオンラインで完結します。対面でのご相談は戸田市・蕨市・川口市・さいたま市エリアを中心に対応しています。</p>
+    </details>
+    <details>
+      <summary>納品後の運用サポートはありますか？</summary>
+      <p>任意の月額プランをご用意しています（LINE運用サポート月額9,800円〜／HP保守プラン月額5,000円）。加入しなくても制作のみのご依頼で問題ありません。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== 7. 運営者について ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">ABOUT</span>
+      <h2><span class="nb">運営者に</span><span class="nb">ついて</span></h2>
+    </div>
+    <div class="about-box">
+      <div class="about-avatar" aria-hidden="true">🐾</div>
+      <div>
+        <h3 style="margin-bottom:10px">安倍 隼汰（あべ しゅんた）｜ねこの手ウェブ制作 代表</h3>
+        <p>埼玉県戸田市を拠点に活動しています。小・中学生向けスポーツスクールなどを運営する <strong>SPORTS LINK の代表</strong> も務めており、自分自身の事業でもホームページやLINEの申込導線を設計・運用してきました。その実務経験を、地域のお店や教室のために提供しているのが「ねこの手ウェブ制作」です。</p>
+        <p>打ち合わせから制作・納品まで、すべて代表本人が直接対応します。営業担当と制作担当が分かれることはありません。</p>
+        <div class="honest">正直にお伝えすると、経験はまだ浅いですが、丁寧なヒアリングと期日より早い納品で対応します。できないことは、最初にはっきりお伝えします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. お問い合わせ ===== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2><span class="nb">まずは</span><span class="nb">無料相談から</span></h2>
+      <p>「何から始めればいいか分からない」という段階でも大丈夫です。<br>下記の窓口からお気軽にご連絡ください。</p>
+      <div class="contact-btns">
+        <a class="btn btn-primary" href="https://coconala.com/services/4478308" target="_blank" rel="noopener">ココナラで相談・依頼する</a>
+        <a class="btn btn-ghost" href="https://crowdworks.jp/public/employees/6880358" target="_blank" rel="noopener">クラウドワークスのプロフィール</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-logo">🐾 ねこの手ウェブ制作</div>
+    <p>ホームページ制作／LINE公式アカウント構築／MEO支援／AI導入支援／ピタップ（NFCタップカード）<br>
+    運営：安倍隼汰（SPORTS LINK代表）｜埼玉県戸田市拠点・全国オンライン対応</p>
+    <p style="margin-top:10px">© ねこの手ウェブ制作</p>
+  </div>
+</footer>
+
 </body>
 </html>
